@@ -13,6 +13,9 @@ jobs:
           - "80:80"
 
     steps:
+      - name:
+        run: |
+          curl http://localhost:80
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run k6 load test
