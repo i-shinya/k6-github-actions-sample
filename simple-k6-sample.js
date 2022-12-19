@@ -20,7 +20,7 @@ export const options = {
 // テストケース
 export default function () {
     const res = http.get(
-        "http://localhost:80"
+        "http://host.docker.internal:80"
     )
     check(res, {
         'is_status_200': (r) => r.status === 200
