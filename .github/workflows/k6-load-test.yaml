@@ -13,13 +13,11 @@ jobs:
           - "80:80"
 
     steps:
-      - name: curl localhost
+      - name: Install k6
         run: |
-          curl http://localhost:80
+          curl https://github.com/loadimpact/k6/releases/download/v0.26.2/k6-v0.26.2-linux64.tar.gz -L | tar xvz --strip-components 1
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run k6 load test
-        uses: grafana/k6-action@v0.2.0
-        with:
-          filename: simple-k6-sample.js
-          flags: -u 100 --rps 10
+        run: |
+          ./k6 run test.js
