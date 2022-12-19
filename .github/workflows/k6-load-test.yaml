@@ -26,4 +26,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Run k6 load test
         run: |
-          k6 run simple-k6-sample.js
+          k6 run simple-k6-sample.js --rps 10000

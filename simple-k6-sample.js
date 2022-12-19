@@ -12,8 +12,8 @@ export const options = {
     // テストステージ（順番に実行される）
     stages: [
         // targetは同時実行数、durationは実行時間
-        { target: 50, duration: '15s' },
-        { target: 100, duration: '15s' }
+        { target: 500, duration: '10s' },
+        { target: 1000, duration: '10s' }
     ]
 }
 
