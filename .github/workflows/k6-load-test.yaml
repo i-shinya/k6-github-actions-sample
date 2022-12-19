@@ -13,13 +13,10 @@ jobs:
           - "80:80"
 
     steps:
-      - name:
-        run: |
-          curl http://localhost:80
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run k6 load test
-        uses: k6io/action@v0.2.0
+        uses: grafana/k6-action@v0.2.0
         with:
           filename: simple-k6-sample.js
           flags: -u 100 --rps 10
