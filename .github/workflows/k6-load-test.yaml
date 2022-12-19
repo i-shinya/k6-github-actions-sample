@@ -1,4 +1,11 @@
 name: k6-load-test
+on:
+  workflow_dispatch:
+    inputs:
+      rps:
+        description: "k6負荷実行のRPS"
+        required: true
+        default: 1000
 jobs:
   k6test:
     name: Run k6 load test
@@ -24,4 +31,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Run k6 load test
         run: |
-          k6 run simple-k6-sample.js --rps 10000
+          k6 run simple-k6-sample.js --rps ${{ github.event.inputs.rps }}
