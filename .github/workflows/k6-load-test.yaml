@@ -1,5 +1,4 @@
 name: k6-load-test
-on:
 jobs:
   k6test:
     name: Run k6 load test
