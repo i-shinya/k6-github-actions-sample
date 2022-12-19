@@ -1,0 +1,24 @@
+version: "3.6"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: loadtest_nginx
+    ports:
+      - "80:80"
+
+  grafana:
+    image: grafana/grafana
+    container_name: loadtest_grafana
+    ports:
+      - '3000:3000'
+    user: 'root'
+    depends_on:
+      - influxdb
+
+  influxdb:
+    image: influxdb:1.8 # k6でがv2に対応していないため1.8を指定
+    container_name: loadtest_influxdb
+    ports:
+      - '8086:8086'
+    environment:
+      - INFLUXDB_DB=loadtest
