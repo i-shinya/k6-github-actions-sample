@@ -4,6 +4,12 @@ github actionsでのk6実行サンプル
 
 ## k6の実行手順
 
+### k6インストール
+
+```shell
+brew install k6
+```
+
 ### docker-compose 起動
 
 ```shell
