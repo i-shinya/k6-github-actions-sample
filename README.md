@@ -29,3 +29,5 @@ k6 run simple-k6-sample.js --rps 100
 ```shell
 k6 run simple-k6-sample.js --rps 100 --out influxdb=http://localhost:8086/loadtest
 ```
+
+※ grafana側の設定は[ブログ](https://it-blue-collar-dairy.com/try-to-use-k6/)に記載しています。
