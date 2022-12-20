@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: curl nginx
+        run: curl http://localhost:80
       - name: Install k6
         # https://www.mindwatering.com/SupportRef.nsf/webpg/6CDCAD1B69566F018525888D005DBF39
         run: |
