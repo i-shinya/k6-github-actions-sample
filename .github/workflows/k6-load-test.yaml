@@ -23,14 +23,8 @@ jobs:
       - name: curl nginx
         run: curl http://localhost:80
       - name: Install k6
-        # https://www.mindwatering.com/SupportRef.nsf/webpg/6CDCAD1B69566F018525888D005DBF39
         run: |
-          sudo apt-get update
-          sudo apt-get upgrade
-          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
-          echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-          sudo apt-get update
-          sudo apt-get install k6
+          curl https://github.com/grafana/k6/releases/download/v0.42.0/k6-v0.42.0-linux-amd64.tar.gz -L | tar xvz --strip-components 1
       - name: Run k6 load test
         run: |
-          k6 run simple-k6-sample.js --rps ${{ github.event.inputs.rps }}
+          ./k6 run simple-k6-sample.js --rps ${{ github.event.inputs.rps }}
