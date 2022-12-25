@@ -32,6 +32,14 @@ k6 run simple-k6-sample.js --rps 100 --out influxdb=http://localhost:8086/loadte
 
 ※ grafana側の設定は[ブログ](https://it-blue-collar-dairy.com/try-to-use-k6/)に記載しています。
 
+#### 結果をDatadogで表示する
+
+`.env.template`を`.env`にリネームし、DD_API_KEYとDD_SITEを設定
+
+```shell
+K6_STATSD_ENABLE_TAGS=true k6 run simple-k6-sample.js --rps 100 --out statsd
+```
+
 ## k3d上でk6-operatorの実行
 
 [k6-operator](https://github.com/grafana/k6-operator)はkubernetes上でk6の分散実行を行うプロジェクト
