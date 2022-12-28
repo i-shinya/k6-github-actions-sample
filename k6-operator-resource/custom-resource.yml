@@ -1,0 +1,20 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-load-test
+spec:
+  parallelism: 4
+  # ホスト側で動いているinfluxdb
+  # arguments: --out influxdb=http://host.k3d.internal:8086/loadtest
+  # Datadogへ結果を送信
+  arguments: --rps 1000 --out statsd
+  script:
+    configMap:
+      name: k6-operator-sample
+      file: k6-operator-sample.js
+  runner:
+    env:
+      - name: K6_STATSD_ENABLE_TAGS
+        value: "true"
+      - name: K6_STATSD_ADDR
+        value: datadog-agent-cluster-ip-service:8125
