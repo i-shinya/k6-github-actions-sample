@@ -1,6 +1,6 @@
 # k6-github-actions-sample
 
-github actionsでのk6実行サンプル
+github actions・k6-operatorでのk6実行サンプル
 
 ## k6の実行手順
 
