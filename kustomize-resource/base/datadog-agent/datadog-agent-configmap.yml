@@ -1,0 +1,10 @@
+# テンプレートとして残しますが、baseのconfigmapは使用しない
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+  namespace: default
+data:
+  # FIXME 自身の環境に合わせて修正してください
+  DD_SITE: us5.datadoghq.com
+  DD_API_KEY: XXXXXX
